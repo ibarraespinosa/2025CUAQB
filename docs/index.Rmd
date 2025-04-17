@@ -484,6 +484,7 @@ class: center middle
 
 
 ---
+class: center middle
 ## Monthly mean bottom level $CO$ bottom 2019ppm
 
 ```{r, echo = F, fig.align='center',  out.width='93%'}
@@ -508,42 +509,60 @@ class: center middle
 knitr::include_graphics("figuras/no_2019.png")
 ```
 
-
-
 ---
 class: center middle
-## Monthly mean bottom level $NO$ bottom 2019ppb
+## Monthly mean bottom level $NO$ bottom 2019ppm
 
 <img src="figuras/no_2019_month.png" alt="drawing" height="500"/>
 
 
+
 ---
+class: center middle
 ## Monthly mean bottom level $NO_2$ bottom 2019ppb
 
-```{r, echo = F, fig.align='center',  out.width='93%'}
-knitr::include_graphics("figuras/no2_2019.png")
-```
+<img src="figuras/no2_2019_month.png" alt="drawing" height="500"/>
+
+
+---
+class: center middle
+## Monthly mean bottom level $NO_2$ bottom 2019ppb
+
+<img src="figuras/no2_2019_month.png" alt="drawing" height="500"/>
+
+
+---
+class: center middle
+## CO
+
+<img src="figuras/MUSICA_CO_HOUR.png" alt="drawing" height="500"/>
+
+
+---
+class: center middle
+<img src="figuras/MUSICA_CO_HOUR_MONTH.png" alt="drawing" height="700"/>
 
 
 
 ---
 class: center middle
-## Monthly mean surface $NO_2$ with MUSICA 2019 ppb
+## PM2.5 $\mu g / m^3$
 
-<img src="figuras/no2_2019_month.png" alt="drawing" height="500"/>
+<img src="figuras/MUSICA_PM25_HOUR.png" alt="drawing" height="500"/>
+
+
+---
+class: center middle
+<img src="figuras/MUSICA_PM25_HOUR_MONTH.png" alt="drawing" height="700"/>
+
+
 
 ---
 class: inverse center middle
 # Gracias!
 
 .pull-left[
-- https://ibarraespinosa.github.io/2025CU
-- https://ibarraespinosa.github.io/
-- sergio.ibarraespinosa@colorado.edu
-- https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ
-- https://github.com/ibarraespinosa
-- https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa
-- https://orcid.org/0000-0002-3162-1905
+<img src="figuras/me2.jpeg" alt="drawing" height="400"/>
 
 ]
 
