@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Unveiling the Impacts of Brazil’s Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Sergio Ibarra-Espinosa¹ ²" />
+    <meta name="author" content="CIRES, University of Colorado-Boulder" />
+    <meta name="date" content="2025-04-17" />
+    <script src="index_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Unveiling the Impacts of Brazil’s Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions
+]
+.author[
+### Sergio Ibarra-Espinosa¹ ²
+]
+.author[
+### CIRES, University of Colorado-Boulder
+]
+.date[
+### 2025-04-17
+]
+
+---
+
+
+
+
+
+
+
+
+class: inverse center middle
+## Unveiling the Impacts of Brazil's Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions
+
+&gt; Sergio Ibarra-Espinosa¹'²
+&lt;br&gt;
+&gt; CIRES, University of Colorado-Boulder&lt;br&gt;
+&gt; sergio.ibarraespinosa@colorado.edu&lt;br&gt;
+
+&gt; Air Quality Buffs Symposium
+https://www.colorado.edu/even/events/aqbuffs2025
+
+
+&lt;img src="https://atmoschem.github.io/vein/reference/figures/logo.png" alt="drawing" height="100"/&gt;
+&lt;img src="https://github.com/atmoschem/respeciate/blob/main/man/figures/logo.png?raw=true" alt="drawing" height="100"/&gt;
+&lt;img src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" alt="drawing" height="100"/&gt;
+&lt;img src="https://www2.acom.ucar.edu/sites/default/files/styles/extra_large/public/images/MUSICAlogo_0.png" alt="drawing" height="100"/&gt;
+&lt;img src="https://avatars.githubusercontent.com/u/12666893?s=200&amp;v=4" alt="drawing" height="100"/&gt;
+
+- extra slides: https://ibarraespinosa.github.io/2025CU https://ibarraespinosa.github.io/2025CUAQB
+
+---
+class: centered inverse middle
+
+&gt; “Emission inventories are easily seen as the scapegoat if a mismatch is found between modelled and observed concentrations of air pollutants”. 
+
+Pulles, Tim, and Dick Heslinga. "The art of emission inventorying." TNO, Utrecht (2010): 29-53.
+
+---
+# Emissions inventories
+
+.pull-left[
+
+## Global inventories
+
+- Crippa et al., (2024) Emissions Database for Global Atmospheric Research (EDGAR) 1970-2023
+- Feng at al., (2020) Community Emissions Data System (CEDS)
+- Soulie et al., (2024) CAMS inventory 2000-2025
+
+]
+
+.pull-right[
+
+## Regional inventories
+
+- Osses et al (2022): Chile 1990-2020
+- Rojas et al., (2023): Colombia 1990-2020
+- MMA-Brazil, (2011): Brazil 1989-2020
+- Hoinaski et al., (2022): Brazil 2013-2019
+- Puliafito et al., (2021): Argentina 1995-2020
+
+]
+
+
+---
+
+# History of road transportation in Brazil
+
+.pull-left[
+## Roads and cars
+
+- Brazil has the biggest fleet in Latin America, with big problems in air pollution and congestion.
+- In 1930s, President Getúlio Vargas initiated first large road projects, including the construction of the "Via Dutra" (Dutra Highway), which connected Rio de  Janeiro to São Paulo. 
+- In 1950, President Kubitschek' Large-scale road construction began, aiming to attract the automotive industry.
+- Volkswagen, Ford and General Motors arrived in Brasil .
+- Today, fleet more than 200 million.
+
+
+]
+
+.pull-right[
+
+## Cars
+
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Romi-Isetta_%C3%81guas_de_Lind%C3%B3ia.jpg" alt="First car made in Brasil" height="200"/&gt;
+- First car produced in Brazil in 1955
+- https://en.wikipedia.org/wiki/Isetta#Romi-Isetta_(Brazil)
+
+]
+
+
+---
+
+# Fuel, fleet and technology
+
+.pull-left[
+## Fuel
+
+- Gasoline contains 27% of ethanol.
+- Diesel has 7% biodiesel
+- In 2003, flex engine emerged, allowing any mix of gasoline or ethanol
+- Ethanol is cheaper, but a bit less miles per gallon 
+- In 2009, flex engines where incorporated into motorcycles
+- Today, 76% of the fleet are flex vehicles
+
+]
+
+.pull-right[
+
+## Fleet
+
+- Light vehicles (PC, LCV, MC) with gasoline engine, with ethanol engine, and flex
+- LCV vehicles also consume diesel
+- Trucks consume diesel
+- Buses consume mostly diesel
+- Small participation: electric cars
+- **Electric vehicles are less environmentally friendly than flex-fuel cars considering a broader analysis (de Oliveira et al., 2020)**.
+- https://www.epa.gov/greenvehicles/electric-vehicle-myths
+]
+
+
+
+
+---
+# Objectives
+
+- Estimate vehicular emission in Brazil, 1960-2100
+- Evaluate impact of Shared Socioeconomic Pathways on evaporative emissions
+- Evaluate impacts on air quality during 2019
+- Compare with Lichtig et al. (2024)
+
+---
+class: inverse center middle
+# Data and methods
+
+---
+
+# Fuel
+
+.pull-left[
+
+
+- Fleet State of Sao Paulo 1979-2020 (CETESB, 2023)
+- Mileage from Official vehicular inventory (CETESB, 2023)
+- Monthly fuel consumption by state, 2000-2023 (ANP, 2023)
+
+ $$ f(x)=\frac{L}{e^{-k(x - x_0)}} $$
+
+]
+
+.pull-right[
+&lt;img src="figuras/fuela.jpg" alt="fuel" height="500"/&gt;
+]
+
+---
+
+# Fleet and fuel in 2020
+
+.pull-left[
+&lt;img src="figuras/initial_fleet_sp.png" alt="fleet sp" height="500"/&gt;
+]
+
+.pull-right[
+&lt;img src="figuras/fuelb.jpg" alt="fuelb" height="500"/&gt;
+
+]
+
+
+---
+# Vehicular Emissions INventories  vein
+
+.pull-left[
+
+* build:
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ibarraespinosa/vein?branch=master&amp;svg=true)](https://ci.appveyor.com/project/ibarraespinosa/vein)
+[![Coverage Status](https://img.shields.io/codecov/c/github/atmoschem/vein/master.svg)](https://codecov.io/github/atmoschem/vein?branch=master)
+* cran:
+[![](http://cranlogs.r-pkg.org/badges/vein)](http://cran.rstudio.com/web/packages/vein/index.html)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/vein)](http://cran.r-project.org/web/packages/vein) 
+[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/vein?color=orange)](http://cran.r-project.org/package=vein)
+[![Package Status](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+![CRAN/METACRAN](https://img.shields.io/cran/l/vein?style=plastic)
+* doi:
+[![DOI](https://zenodo.org/badge/88201850.svg)](https://zenodo.org/badge/latestdoi/88201850)
+* github:
+[![Github Stars](https://img.shields.io/github/stars/atmoschem/vein.svg?style=social&amp;label=Github)](https://github.com/atmoschem/vein)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/atmoschem/vein)
+![GitHub issues](https://img.shields.io/github/issues/atmoschem/vein)
+&lt;!-- ![Liberapay giving](https://img.shields.io/liberapay/gives/sergio.ibarra) --&gt;
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/ibarraespinosa/vein)
+[![R build status](https://github.com/atmoschem/vein/workflows/R-CMD-check/badge.svg)](https://github.com/atmoschem/vein/actions)
+
+- R package to calculate vehicular emissions
+- Includes Fortran subroutines with // OpenMP
+- main paper: https://gmd.copernicus.org/articles/11/2209/2018/
+- 64 citations [(2018)](https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;cites=1650173053278606175)
+- Detailed speciation applying Carter [(2015)](https://www.tandfonline.com/doi/full/10.1080/10962247.2015.1013646)
+- YouTube Channel https://www.youtube.com/channel/UC2oYaS9mpnIDk8w55O8_bTg
+- Emission factors based on real world measurements
+ ]
+
+
+
+
+.pull-right[
+
+&lt;img src="https://atmoschem.github.io/vein/reference/figures/logo.png" height="100"/&gt;
+
+&lt;image src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" height="100"&gt;
+
+&lt;image src="https://github.com/atmoschem/respeciate/blob/main/man/figures/logo.png?raw=true" height="100"&gt;
+
+&lt;img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" height="100"/&gt;
+
+&lt;img src="https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png" height="100"/&gt;
+
+]
+
+---
+# vein
+
+![](https://atmoschem.github.io/all.gif)
+
+---
+# How to run vein (without knowing R)
+
+.pull-left[
+- Install and get a [project](https://atmoschem.github.io/vein/reference/get_project.html)
+
+
+``` r
+install.packages("vein")
+library(vein)
+?get_project
+```
+]
+
+.pull-right[
+
+&lt;image src="figuras/vein_projects.jpg" height="500"&gt;
+
+
+]
+
+---
+
+# MUSICA (ACOM NSF NCAR)
+
+.pull-left[
+
+- [MUSICA](https://wiki.ucar.edu/display/MUSICA/MUSICA+Home)
+- The Multi-Scale Infrastructure for Chemistry and Aerosols (MUSICA) will become a 
+  computationally feasible global modeling framework that allows for the simulation 
+  of large-scale atmospheric phenomena, while still resolving chemistry at 
+  emission and exposure relevant scales. 
+- MUSICAv0 is a configuration of CAM-chem, the Community Atmosphere Model with chemistry,
+  component of the Community Earth System Model (CESM). 
+- Configuration: Spectral Element (SE) dynamical core, which allows for Regional 
+  Refinement (RR), so is called CAM-chem-SE-RR, or MUSICAv0.  
+- The chemical mechanism in MUSICA is  MOZART-TS1 (Emmons et al., 2020) 
+- Aerosols Modal Aerosol Module (MAM4) with volatility bin set (VBS) (Liu et al., 2016; Tilmes et al., 2019).
+]
+
+.pull-right[
+
+&lt;image src="figuras/grids/grids.gif" height="400"&gt;
+
+]
+
+--- 
+# Grid South America
+
+
+&lt;img src="figuras/o3mus5.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# VEIN + MUSICA
+
+.pull-left[
+
+## Emissions
+
+- Fire INventory from NCAR version 2.5 (FINNv2.5) (Wiedinmyer,et al., 2023)
+- CAMS (Soulie et al., 2023)
+- Biogenic emissions the Model of Emissions of Gases and Aerosols from Nature (MEGAN) (Guenther et al., 2012). 
+- Transportation Emisisons from VEIN In Brazil
+]
+
+.pull-right[
+## Scenarios
+
+1. MUSICA 2018 and 2019 with default emissions
+2. MUSICA 2018 and 2019 with transportation from VEIN in Brazil and other elsewhere
+
+]
+
+
+---
+class: inverse center middle
+# Results
+
+---
+class: center middle
+
+&lt;img src="figuras/vein_ceds_edgar_cams_CO2.png" alt="drawing" height="550"/&gt;
+
+
+---
+class: center middle
+
+&lt;img src="figuras/vein_ceds_edgar_cams.png" alt="drawing" height="550"/&gt;
+
+---
+class: center middle
+
+&lt;img src="figuras/vein_ceds_edgar_cams_PM.png" alt="drawing" height="550"/&gt;
+
+
+---
+class: center middle
+
+
+&lt;img src="figuras/vein_ceds_edgar_cams_NMHC.png" alt="drawing" /&gt;
+
+
+---
+class: inverse center middle
+# Is there a positive feedback with evaporative emissions?
+
+
+---
+# hockey-type curve
+
+
+- Based on last figures, it seems that there is indeed a positive feedback
+- The hotter the air, the more evaporative emissions, hence more global warming
+- To investigate the breakpoints, we used Regression Model with Segmented Relationship(s)
+- We used the R package segmented 
+- Fasola S, Muggeo VMR, Kuchenhoff K. (2018). A heuristic, iterative
+  algorithm for change-point detection in abrupt change models.
+  Computational Statistics, 33, 997-1015.
+
+
+
+---
+class: center middle
+
+&lt;img src="figuras/vein_ceds_edgar_cams_hockey_brazil.png" alt="drawing" /&gt;
+
+
+---
+class: center middle
+
+&lt;img src="figuras/vein_ceds_edgar_cams_hockey_region.png" alt="drawing" /&gt;
+
+
+
+
+---
+class: inverse center middle
+# Maps VEIN CAMS
+
+---
+class: center middle
+#CO
+.pull-left[
+
+&lt;img src="figuras/vein_cams_co.png" alt="drawing" /&gt;
+]
+
+.pull-right[
+&lt;img src="figuras/vein_cams_co_dif.png" alt="drawing" height="500"/&gt;
+]
+
+
+---
+class: center middle
+#NOx
+.pull-left[
+
+&lt;img src="figuras/vein_cams_nox.png" alt="drawing" /&gt;
+]
+
+.pull-right[
+&lt;img src="figuras/vein_cams_nox_dif.png" alt="drawing" height="500"/&gt;
+]
+
+
+---
+class: center middle
+#alcohols
+.pull-left[
+
+&lt;img src="figuras/vein_cams_alcohols.png" alt="drawing" /&gt;
+]
+
+.pull-right[
+&lt;img src="figuras/vein_cams_alcohols_dif.png" alt="drawing" height="500"/&gt;
+]
+
+
+
+
+---
+class: center middle
+#acetylene
+.pull-left[
+
+&lt;img src="figuras/vein_cams_acetylene.png" alt="drawing" /&gt;
+]
+
+.pull-right[
+&lt;img src="figuras/vein_cams_acetylene_dif.png" alt="drawing" height="500"/&gt;
+]
+
+
+
+---
+class: inverse center middle
+# Some advances using MUSICA
+
+---
+## MUSICA run over South America
+
+&lt;img src="figuras/grid_sa.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+
+---
+## Monthly mean bottom level `\(O_3\)` bottom 2019ppb
+
+&lt;img src="figuras/o3_2019.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: center middle
+## Monthly mean bottom level `\(O_3\)` bottom 2019ppb
+
+&lt;img src="figuras/o3_2019_month.png" alt="drawing" height="500"/&gt;
+
+
+
+---
+## Monthly mean bottom level `\(CO\)` bottom 2019ppm
+
+&lt;img src="figuras/co_2019.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: center middle
+## Monthly mean bottom level `\(CO\)` bottom 2019ppm
+
+&lt;img src="figuras/co_2019_month.png" alt="drawing" height="500"/&gt;
+
+
+
+
+---
+## Monthly mean bottom level `\(NO\)` bottom 2019ppb
+
+&lt;img src="figuras/no_2019.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: center middle
+## Monthly mean bottom level `\(NO\)` bottom 2019ppb
+
+&lt;img src="figuras/no_2019_month.png" alt="drawing" height="500"/&gt;
+
+
+---
+## Monthly mean bottom level `\(NO_2\)` bottom 2019ppb
+
+&lt;img src="figuras/no2_2019.png" width="93%" style="display: block; margin: auto;" /&gt;
+
+
+
+---
+class: center middle
+## Monthly mean surface `\(NO_2\)` with MUSICA 2019 ppb
+
+&lt;img src="figuras/no2_2019_month.png" alt="drawing" height="500"/&gt;
+
+---
+class: inverse center middle
+# Gracias!
+
+.pull-left[
+- https://ibarraespinosa.github.io/2025CU
+- https://ibarraespinosa.github.io/
+- sergio.ibarraespinosa@colorado.edu
+- https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ
+- https://github.com/ibarraespinosa
+- https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa
+- https://orcid.org/0000-0002-3162-1905
+
+]
+
+.pull-right[
+&lt;img src="figuras/qr.png" alt="drawing" height="400"/&gt;
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

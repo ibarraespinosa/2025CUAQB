@@ -1,0 +1,553 @@
+---
+title: "Unveiling the Impacts of Brazil's Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions"
+author: 
+  - "Sergio Ibarra-Espinosa¹ ²"
+  - "CIRES, University of Colorado-Boulder"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=3.5, 
+  fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+library(vein)
+library(data.table)
+library(ggplot2)
+library(mapview)
+library(sf)
+```
+
+
+
+class: inverse center middle
+## Unveiling the Impacts of Brazil's Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions
+
+> Sergio Ibarra-Espinosa¹'²
+<br>
+> CIRES, University of Colorado-Boulder<br>
+> sergio.ibarraespinosa@colorado.edu<br>
+
+> Air Quality Buffs Symposium
+https://www.colorado.edu/even/events/aqbuffs2025
+
+
+<img src="https://atmoschem.github.io/vein/reference/figures/logo.png" alt="drawing" height="100"/>
+<img src="https://github.com/atmoschem/respeciate/blob/main/man/figures/logo.png?raw=true" alt="drawing" height="100"/>
+<img src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" alt="drawing" height="100"/>
+<img src="https://www2.acom.ucar.edu/sites/default/files/styles/extra_large/public/images/MUSICAlogo_0.png" alt="drawing" height="100"/>
+<img src="https://avatars.githubusercontent.com/u/12666893?s=200&v=4" alt="drawing" height="100"/>
+
+- extra slides: https://ibarraespinosa.github.io/2025CU https://ibarraespinosa.github.io/2025CUAQB
+
+---
+class: centered inverse middle
+
+> “Emission inventories are easily seen as the scapegoat if a mismatch is found between modelled and observed concentrations of air pollutants”. 
+
+Pulles, Tim, and Dick Heslinga. "The art of emission inventorying." TNO, Utrecht (2010): 29-53.
+
+---
+# Emissions inventories
+
+.pull-left[
+
+## Global inventories
+
+- Crippa et al., (2024) Emissions Database for Global Atmospheric Research (EDGAR) 1970-2023
+- Feng at al., (2020) Community Emissions Data System (CEDS)
+- Soulie et al., (2024) CAMS inventory 2000-2025
+
+]
+
+.pull-right[
+
+## Regional inventories
+
+- Osses et al (2022): Chile 1990-2020
+- Rojas et al., (2023): Colombia 1990-2020
+- MMA-Brazil, (2011): Brazil 1989-2020
+- Hoinaski et al., (2022): Brazil 2013-2019
+- Puliafito et al., (2021): Argentina 1995-2020
+
+]
+
+
+---
+
+# History of road transportation in Brazil
+
+.pull-left[
+## Roads and cars
+
+- Brazil has the biggest fleet in Latin America, with big problems in air pollution and congestion.
+- In 1930s, President Getúlio Vargas initiated first large road projects, including the construction of the "Via Dutra" (Dutra Highway), which connected Rio de  Janeiro to São Paulo. 
+- In 1950, President Kubitschek' Large-scale road construction began, aiming to attract the automotive industry.
+- Volkswagen, Ford and General Motors arrived in Brasil .
+- Today, fleet more than 200 million.
+
+
+]
+
+.pull-right[
+
+## Cars
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Romi-Isetta_%C3%81guas_de_Lind%C3%B3ia.jpg" alt="First car made in Brasil" height="200"/>
+- First car produced in Brazil in 1955
+- https://en.wikipedia.org/wiki/Isetta#Romi-Isetta_(Brazil)
+
+]
+
+
+---
+
+# Fuel, fleet and technology
+
+.pull-left[
+## Fuel
+
+- Gasoline contains 27% of ethanol.
+- Diesel has 7% biodiesel
+- In 2003, flex engine emerged, allowing any mix of gasoline or ethanol
+- Ethanol is cheaper, but a bit less miles per gallon 
+- In 2009, flex engines where incorporated into motorcycles
+- Today, 76% of the fleet are flex vehicles
+
+]
+
+.pull-right[
+
+## Fleet
+
+- Light vehicles (PC, LCV, MC) with gasoline engine, with ethanol engine, and flex
+- LCV vehicles also consume diesel
+- Trucks consume diesel
+- Buses consume mostly diesel
+- Small participation: electric cars
+- **Electric vehicles are less environmentally friendly than flex-fuel cars considering a broader analysis (de Oliveira et al., 2020)**.
+- https://www.epa.gov/greenvehicles/electric-vehicle-myths
+]
+
+
+
+
+---
+# Objectives
+
+- Estimate vehicular emission in Brazil, 1960-2100
+- Evaluate impact of Shared Socioeconomic Pathways on evaporative emissions
+- Evaluate impacts on air quality during 2019
+- Compare with Lichtig et al. (2024)
+
+---
+class: inverse center middle
+# Data and methods
+
+---
+
+# Fuel
+
+.pull-left[
+
+
+- Fleet State of Sao Paulo 1979-2020 (CETESB, 2023)
+- Mileage from Official vehicular inventory (CETESB, 2023)
+- Monthly fuel consumption by state, 2000-2023 (ANP, 2023)
+
+ $$ f(x)=\frac{L}{e^{-k(x - x_0)}} $$
+
+]
+
+.pull-right[
+<img src="figuras/fuela.jpg" alt="fuel" height="500"/>
+]
+
+---
+
+# Fleet and fuel in 2020
+
+.pull-left[
+<img src="figuras/initial_fleet_sp.png" alt="fleet sp" height="500"/>
+]
+
+.pull-right[
+<img src="figuras/fuelb.jpg" alt="fuelb" height="500"/>
+
+]
+
+
+---
+# Vehicular Emissions INventories  vein
+
+.pull-left[
+
+* build:
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/ibarraespinosa/vein?branch=master&svg=true)](https://ci.appveyor.com/project/ibarraespinosa/vein)
+[![Coverage Status](https://img.shields.io/codecov/c/github/atmoschem/vein/master.svg)](https://codecov.io/github/atmoschem/vein?branch=master)
+* cran:
+[![](http://cranlogs.r-pkg.org/badges/vein)](http://cran.rstudio.com/web/packages/vein/index.html)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/vein)](http://cran.r-project.org/web/packages/vein) 
+[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/vein?color=orange)](http://cran.r-project.org/package=vein)
+[![Package Status](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+![CRAN/METACRAN](https://img.shields.io/cran/l/vein?style=plastic)
+* doi:
+[![DOI](https://zenodo.org/badge/88201850.svg)](https://zenodo.org/badge/latestdoi/88201850)
+* github:
+[![Github Stars](https://img.shields.io/github/stars/atmoschem/vein.svg?style=social&label=Github)](https://github.com/atmoschem/vein)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/atmoschem/vein)
+![GitHub issues](https://img.shields.io/github/issues/atmoschem/vein)
+<!-- ![Liberapay giving](https://img.shields.io/liberapay/gives/sergio.ibarra) -->
+![GitHub commit activity](https://img.shields.io/github/commit-activity/y/ibarraespinosa/vein)
+[![R build status](https://github.com/atmoschem/vein/workflows/R-CMD-check/badge.svg)](https://github.com/atmoschem/vein/actions)
+
+- R package to calculate vehicular emissions
+- Includes Fortran subroutines with // OpenMP
+- main paper: https://gmd.copernicus.org/articles/11/2209/2018/
+- 64 citations [(2018)](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1650173053278606175)
+- Detailed speciation applying Carter [(2015)](https://www.tandfonline.com/doi/full/10.1080/10962247.2015.1013646)
+- YouTube Channel https://www.youtube.com/channel/UC2oYaS9mpnIDk8w55O8_bTg
+- Emission factors based on real world measurements
+ ]
+
+
+
+
+.pull-right[
+
+<img src="https://atmoschem.github.io/vein/reference/figures/logo.png" height="100"/>
+
+<image src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" height="100">
+
+<image src="https://github.com/atmoschem/respeciate/blob/main/man/figures/logo.png?raw=true" height="100">
+
+<img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" height="100"/>
+
+<img src="https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png" height="100"/>
+
+]
+
+---
+# vein
+
+![](https://atmoschem.github.io/all.gif)
+
+---
+# How to run vein (without knowing R)
+
+.pull-left[
+- Install and get a [project](https://atmoschem.github.io/vein/reference/get_project.html)
+
+```{r, eval = F}
+install.packages("vein")
+library(vein)
+?get_project
+```
+]
+
+.pull-right[
+
+<image src="figuras/vein_projects.jpg" height="500">
+
+
+]
+
+---
+
+# MUSICA (ACOM NSF NCAR)
+
+.pull-left[
+
+- [MUSICA](https://wiki.ucar.edu/display/MUSICA/MUSICA+Home)
+- The Multi-Scale Infrastructure for Chemistry and Aerosols (MUSICA) will become a 
+  computationally feasible global modeling framework that allows for the simulation 
+  of large-scale atmospheric phenomena, while still resolving chemistry at 
+  emission and exposure relevant scales. 
+- MUSICAv0 is a configuration of CAM-chem, the Community Atmosphere Model with chemistry,
+  component of the Community Earth System Model (CESM). 
+- Configuration: Spectral Element (SE) dynamical core, which allows for Regional 
+  Refinement (RR), so is called CAM-chem-SE-RR, or MUSICAv0.  
+- The chemical mechanism in MUSICA is  MOZART-TS1 (Emmons et al., 2020) 
+- Aerosols Modal Aerosol Module (MAM4) with volatility bin set (VBS) (Liu et al., 2016; Tilmes et al., 2019).
+]
+
+.pull-right[
+
+<image src="figuras/grids/grids.gif" height="400">
+
+]
+
+--- 
+# Grid South America
+
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/o3mus5.png")
+```
+
+---
+
+# VEIN + MUSICA
+
+.pull-left[
+
+## Emissions
+
+- Fire INventory from NCAR version 2.5 (FINNv2.5) (Wiedinmyer,et al., 2023)
+- CAMS (Soulie et al., 2023)
+- Biogenic emissions the Model of Emissions of Gases and Aerosols from Nature (MEGAN) (Guenther et al., 2012). 
+- Transportation Emisisons from VEIN In Brazil
+]
+
+.pull-right[
+## Scenarios
+
+1. MUSICA 2018 and 2019 with default emissions
+2. MUSICA 2018 and 2019 with transportation from VEIN in Brazil and other elsewhere
+
+]
+
+
+---
+class: inverse center middle
+# Results
+
+---
+class: center middle
+
+<img src="figuras/vein_ceds_edgar_cams_CO2.png" alt="drawing" height="550"/>
+
+
+---
+class: center middle
+
+<img src="figuras/vein_ceds_edgar_cams.png" alt="drawing" height="550"/>
+
+---
+class: center middle
+
+<img src="figuras/vein_ceds_edgar_cams_PM.png" alt="drawing" height="550"/>
+
+
+---
+class: center middle
+
+
+<img src="figuras/vein_ceds_edgar_cams_NMHC.png" alt="drawing" />
+
+
+---
+class: inverse center middle
+# Is there a positive feedback with evaporative emissions?
+
+
+---
+# hockey-type curve
+
+
+- Based on last figures, it seems that there is indeed a positive feedback
+- The hotter the air, the more evaporative emissions, hence more global warming
+- To investigate the breakpoints, we used Regression Model with Segmented Relationship(s)
+- We used the R package segmented 
+- Fasola S, Muggeo VMR, Kuchenhoff K. (2018). A heuristic, iterative
+  algorithm for change-point detection in abrupt change models.
+  Computational Statistics, 33, 997-1015.
+
+
+
+---
+class: center middle
+
+<img src="figuras/vein_ceds_edgar_cams_hockey_brazil.png" alt="drawing" />
+
+
+---
+class: center middle
+
+<img src="figuras/vein_ceds_edgar_cams_hockey_region.png" alt="drawing" />
+
+
+
+
+---
+class: inverse center middle
+# Maps VEIN CAMS
+
+---
+class: center middle
+#CO
+.pull-left[
+
+<img src="figuras/vein_cams_co.png" alt="drawing" />
+]
+
+.pull-right[
+<img src="figuras/vein_cams_co_dif.png" alt="drawing" height="500"/>
+]
+
+
+---
+class: center middle
+#NOx
+.pull-left[
+
+<img src="figuras/vein_cams_nox.png" alt="drawing" />
+]
+
+.pull-right[
+<img src="figuras/vein_cams_nox_dif.png" alt="drawing" height="500"/>
+]
+
+
+---
+class: center middle
+#alcohols
+.pull-left[
+
+<img src="figuras/vein_cams_alcohols.png" alt="drawing" />
+]
+
+.pull-right[
+<img src="figuras/vein_cams_alcohols_dif.png" alt="drawing" height="500"/>
+]
+
+
+
+
+---
+class: center middle
+#acetylene
+.pull-left[
+
+<img src="figuras/vein_cams_acetylene.png" alt="drawing" />
+]
+
+.pull-right[
+<img src="figuras/vein_cams_acetylene_dif.png" alt="drawing" height="500"/>
+]
+
+
+
+---
+class: inverse center middle
+# Some advances using MUSICA
+
+---
+## MUSICA run over South America
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/grid_sa.png")
+```
+
+
+---
+## Monthly mean bottom level $O_3$ bottom 2019ppb
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/o3_2019.png")
+```
+
+
+
+---
+class: center middle
+## Monthly mean bottom level $O_3$ bottom 2019ppb
+
+<img src="figuras/o3_2019_month.png" alt="drawing" height="500"/>
+
+
+
+---
+## Monthly mean bottom level $CO$ bottom 2019ppm
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/co_2019.png")
+```
+
+
+
+---
+class: center middle
+## Monthly mean bottom level $CO$ bottom 2019ppm
+
+<img src="figuras/co_2019_month.png" alt="drawing" height="500"/>
+
+
+
+
+---
+## Monthly mean bottom level $NO$ bottom 2019ppb
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/no_2019.png")
+```
+
+
+
+---
+class: center middle
+## Monthly mean bottom level $NO$ bottom 2019ppb
+
+<img src="figuras/no_2019_month.png" alt="drawing" height="500"/>
+
+
+---
+## Monthly mean bottom level $NO_2$ bottom 2019ppb
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/no2_2019.png")
+```
+
+
+
+---
+class: center middle
+## Monthly mean surface $NO_2$ with MUSICA 2019 ppb
+
+<img src="figuras/no2_2019_month.png" alt="drawing" height="500"/>
+
+---
+class: inverse center middle
+# Gracias!
+
+.pull-left[
+- https://ibarraespinosa.github.io/2025CU
+- https://ibarraespinosa.github.io/
+- sergio.ibarraespinosa@colorado.edu
+- https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ
+- https://github.com/ibarraespinosa
+- https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa
+- https://orcid.org/0000-0002-3162-1905
+
+]
+
+.pull-right[
+<img src="figuras/qr.png" alt="drawing" height="400"/>
+]
+

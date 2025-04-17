@@ -1,0 +1,588 @@
+---
+title: "Unveiling the Impacts of Brazil's Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions"
+author: 
+  - "Sergio Ibarra-Espinosa¹ ²"
+  - "1 CIRES, University of Colorado-Boulder"
+  - "2 NOAA Global Monitoring Laboratory"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(
+  fig.width=9, 
+  fig.height=3.5, 
+  fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+style_duo_accent(
+  primary_color = "#1381B0",
+  secondary_color = "#FF961C",
+  inverse_header_color = "#FFFFFF"
+)
+library(vein)
+library(data.table)
+library(ggplot2)
+library(mapview)
+library(sf)
+```
+
+
+
+class: inverse center middle
+## Unveiling the Impacts of Brazil's Unique Fuel Mix on Air Quality: A Century of Vehicular Emissions
+
+> Sergio Ibarra-Espinosa¹'²
+<br>
+> 1 CIRES, University of Colorado-Boulder<br>
+> 2 NOAA Global Monitoring Laboratory<br>
+> sergio.ibarraespinosa@colorado.edu<br>
+
+> Collaboratory for Air Quality Research (CAQR)
+Department Mechanical Engineering
+University of Colorado-Boulder
+
+
+
+<img src="https://atmoschem.github.io/vein/reference/figures/logo.png" alt="drawing" height="100"/>
+<img src="figuras/logo.png" alt="drawing" height="100"/>
+<img src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" alt="drawing" height="100"/>
+<img src="https://www2.acom.ucar.edu/sites/default/files/styles/extra_large/public/images/MUSICAlogo_0.png" alt="drawing" height="100"/>
+<img src="https://avatars.githubusercontent.com/u/12666893?s=200&v=4" alt="drawing" height="100"/>
+
+- extra slides: VEIN+MOVES in US, China, WRF Chem, Methane Emissions over US
+
+---
+class: centered inverse middle
+
+> “Emission inventories are easily seen as the scapegoat if a mismatch is found between modelled and observed concentrations of air pollutants”. 
+
+Pulles, Tim, and Dick Heslinga. "The art of emission inventorying." TNO, Utrecht (2010): 29-53.
+
+---
+# Emissions inventories
+
+.pull-left[
+
+## Global inventories
+
+- Crippa et al., 2024) Emissions Database for Global Atmospheric Research (EDGAR) 1970-2023
+- Feng at al., (2020) Community Emissions Data System (CEDS)
+- Soulie et al., (2024) CAMS inventory 2000-2025
+
+]
+
+.pull-right[
+
+## Regional inventories
+
+- Osses et al (2022): Chile 1990-2020
+- Rojas et al., (2023): Colombia 1990-2020
+- MMA-Brazil, (2011): Brazil 1989-2020
+- Hoinaski et al., (2022): Brazil 2013-2019
+- Puliafito et al., (2021): Argentina 1995-2020
+
+]
+
+
+---
+
+# History of road transportation in Brazil
+
+.pull-left[
+## Roads and cars
+
+Brazil has the biggest fleet in Latin America, with big problems in air pollution and congestion.
+In 1930s, President Getúlio Vargas initiated large-scale road projects, including the construction of the "Via Dutra" (Dutra Highway), which connected Rio de  Janeiro to São Paulo. This period also saw the introduction of bus services and the expansion of road networks.
+In 1050, President Kubitschek' Large-scale road construction began, aiming to attract the automotive industry.
+Volkswagen, Ford and General Motors arrived in Brasil .
+Today, fleet more than 200 million.
+
+
+]
+
+.pull-right[
+
+## Cars
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Romi-Isetta_%C3%81guas_de_Lind%C3%B3ia.jpg" alt="First car made in Brasil" height="200"/>
+- First car produced in Brazil in 1955
+- https://en.wikipedia.org/wiki/Isetta#Romi-Isetta_(Brazil)
+
+]
+
+
+---
+
+# Fuel, fleet and technology
+
+.pull-left[
+## Fuel
+
+- Gasoline contains 27% of ethanol and diesel 7% of biodiesel (CETESB, 2020).
+- Diesel has 7% biodiesel
+- In 2003, flex engine emerged, allowing any mix of gasoline or ethanol
+- Ethanol is cheaper, but a bit lower economy
+- In 2009, flex engines where incorporated into motorcycles
+- Today, 76% of the fleet are flex vehicles
+
+]
+
+.pull-right[
+
+## Fleet
+
+- Light vehicles (PC, LCV, MC) with gasoline engine, with ethanol engine, and flex
+- LCV vehicles also consume diesel
+- Trucks consume diesel
+- Buses consume mostly diesel
+- Small participation:
+-- Electric vehicles (light and buses), hydrogen, Compressed natural gas (mostly in Rio de Janeiro)
+- **Electric vehicles are less environmentally friendly than flex-fuel cars considering a broader analysis (de Oliveira et al., 2020)**.
+
+]
+
+
+
+
+---
+# Objectives
+
+- Estimate vehicular emission in Brazil, 1960-2100
+- Evaluate impact of Shared Socioeconomic Pathways on evaporative emissions
+- Evaluate impacts on air quality during 2019
+
+
+---
+class: inverse center middle
+# Data and methods
+
+---
+
+# Fuel
+
+.pull-left[
+
+
+- Fleet State of Sao Paulo 1979-2020 (CETESB, 2023)
+- Mileage from Official vehicular inventory (CETESB, 2023)
+- Monthly fuel consumption by state, 2000-2023 (ANP, 2023)
+
+ $$ f(x)=\frac{L}{e^{-k(x - x_0)}} $$
+
+]
+
+.pull-right[
+<img src="figuras/fuela.jpg" alt="fuel" height="500"/>
+]
+
+---
+
+# Fleet and fuel
+
+.pull-left[
+<img src="figuras/initial_fleet_sp.png" alt="fleet sp" height="500"/>
+]
+
+.pull-right[
+<img src="figuras/fuelb.jpg" alt="fuelb" height="500"/>
+
+]
+
+---
+# Vehicular Emissions INVentory (vein)
+
+![](https://atmoschem.github.io/all.gif)
+
+
+
+---
+# vein
+
+.pull-left[
+
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/vein)](http://cran.r-project.org/web/packages/vein) 
+[![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/vein?color=orange)](http://cran.r-project.org/package=vein)
+
+- R package to calculate vehicular emissions
+- Includes Fortran subroutines with // OpenMP
+- main paper: https://gmd.copernicus.org/articles/11/2209/2018/
+- 64 citations [(2018)](https://scholar.google.com/scholar?oi=bibs&hl=en&cites=1650173053278606175)
+- Detailed speciation applying Carter [(2015)](https://www.tandfonline.com/doi/full/10.1080/10962247.2015.1013646)
+- YouTube Channel https://www.youtube.com/channel/UC2oYaS9mpnIDk8w55O8_bTg
+
+ ]
+
+
+
+
+.pull-right[
+
+<img src="https://atmoschem.github.io/vein/reference/figures/logo.png" alt="fleet sp" height="100"/>
+
+<image src="https://atmoschem.github.io/eixport/reference/figures/logo.gif" height="100">
+
+<image src="file:///media/sergio/ext5/papers/vein_musica/2025CU/docs/figuras/logo.png" height="100">
+
+<img src="https://user-images.githubusercontent.com/520851/34887433-ce1d130e-f7c6-11e7-83fc-d60ad4fae6bd.gif" alt="fleet sp" height="100"/>
+
+<img src="https://raw.githubusercontent.com/Rdatatable/data.table/master/.graphics/logo.png" alt="fleet sp" height="100"/>
+
+]
+
+---
+# vein
+
+![](https://atmoschem.github.io/all.gif)
+
+
+---
+
+# MUSICA
+
+.pull-left[
+
+- The Multi-Scale Infrastructure for Chemistry and Aerosols (MUSICA) will become a 
+  computationally feasible global modeling framework that allows for the simulation 
+  of large-scale atmospheric phenomena, while still resolving chemistry at 
+  emission and exposure relevant scales. 
+- MUSICA is being developed by the Atmospheric Chemistry Observations and Modeling 
+  (ACOM) Laboratory at NCAR with the atmospheric chemistry community. 
+]
+
+.pull-right[
+
+]
+
+--- Grid South America
+
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/o3mus5.png")
+```
+
+
+---
+class: inverse center middle
+# Some applications
+
+---
+class: center middle
+## Formaldehyde: 0.059 Mt/y
+
+<img src="figuras/PM25.png" alt="drawing" height="550"/>
+
+---
+class: center middle
+## NP 50 nm: 1.58E+26 /y
+
+<img src="figuras/N_50nm_urban.png" alt="drawing" height="550"/>
+
+---
+class: center middle
+## NorthEast China
+<img src="figuras/fig7.png" alt="drawing" height="550"/>
+
+---
+
+## Applications: Sao Paulo
+
+.pull-left[
+```{r, message = F, fig.align='center',  out.height='110%'}
+library(sf)
+library(vein)
+x <- readRDS("rds/CO.rds")
+g <- st_sf(
+  geometry = st_make_grid(
+    x = x,
+    cellsize = 3000, 
+    square = F))
+co <- emis_grid(spobj = x,
+                g = g)
+```
+
+]
+
+
+.pull-right[
+
+```{r, message = F, fig.align='center',  fig.height=6, fig.width=8}
+plot(co[as.numeric(co$V9) > 0, "V9"],
+     axes = T, lty = 0)
+
+```
+]
+
+---
+class: center
+## WRF Chemi using eixport
+
+
+<video width="520" height="440" controls>
+<source src="wrfc.mp4" type="video/mp4" height="550"/>
+Your browser does not support the video tag.
+</video>
+
+
+---
+class: inverse center middle
+# Integration with US/EPA MOVES
+
+---
+
+## Recent Research: Integration of MOVES and VEIN:
+
+- MOVES is the official vehicular emissions model for US. Runs on Windows, written in Java/SQL with MariaDB. VEIN is very versatile, ideal for traffic flow at streets. Currently has two approaches: 
+- **1** Estimation using Windows with MOVES >3.0 installed. Emission factors are accessed using SQL in R.
+- **2** Estimation using any OS. Emission factors are exported from Windows as .csv.gz and read with `data.table::fread`.
+- Paper will be submitted to GMD (under development)
+
+---
+## Screenshots
+
+
+```{r, eval = F, fig.align='center',  out.width='100%'}
+vein::get_project(directory = "sacramento", case = "moves")
+```
+
+
+.pull-left[
+
+```{r, echo = F, fig.align='center',  out.width='83%'}
+knitr::include_graphics("figuras/main.png")
+```
+
+]
+
+.pull-right[
+```{r, echo = F, fig.align='center', out.width='75%'}
+knitr::include_graphics("figuras/moves1.png")
+```
+
+]
+---
+
+## Sacramento County 2017
+
+.left-column[
+
+- Traffic flow for a 4-stage travel demand model output for Sacramento Area, extracted for Sacramento County.'
+- Traffic flow is for 2016 from CARB. 
+- Traffic flow is total traffic volume 08:00-09:00.  
+- Vehicular composition based on baltimore.
+- Fuel consumption for 2017.
+- Emission factors from Baltimore 2017.
+- Temporal factors from hourly VMT MOVES Baltimore.
+- Assumed BPR parameters.
+]
+
+.right-column[
+
+
+```{r, echo = F, message = F, fig.align='center',  fig.height=6, fig.width=5}
+net <- readRDS("rds/net.rds")
+net <- st_transform(net, 4326)
+mapview::mapview(net["PC"], 
+                 color = cptcity::cpt(pal = "mpl_viridis"),
+                 legend = FALSE)
+```
+]
+
+---
+class: center
+## Speed parameters
+
+
+.pull-left[
+<img src="figuras/SPEED.png" alt="drawing" height="500"/>
+]
+
+.pull-right[
+<img src="figuras/SPEEDBIN.png" alt="drawing" height="500"/>
+]
+
+---
+
+## Emissions
+
+
+.pull-left[
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/emisac.png")
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/no2mov.png")
+```
+
+]
+---
+
+
+## Spatial Emissions
+
+
+```{r, echo = F, message = F, fig.align='center',  fig.height=7, fig.width=6}
+library(sf)
+library(vein)
+co <- readRDS("rds/pollutantID_2.rds")
+l8 <- co[as.numeric(co$H8) > 0,"H8"]
+g <- st_sf(
+  geometry = st_make_grid(
+    x = l8,
+    cellsize = 3000, 
+    square = F))
+gco <- emis_grid(spobj = l8,
+                 g = g)
+grid <- gco[as.numeric(gco$H8) > 0,"H8"]
+mapview::mapview(l8, 
+                 col.regions = cptcity::cpt(pal = "mpl_inferno"),
+                 legend = FALSE) + mapview::mapview(grid, 
+                                                    legend = FALSE)
+```
+
+---
+class: inverse center middle
+# Some advances using MUSICA
+
+---
+## MUSICA run over South America
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/o3mus5.png")
+```
+
+
+---
+
+## Geometry
+
+- The idea is to re-construct geometry from the NetCDF file.
+- Generate Well Known Text POLYGON, example:
+
+```{r, eval=F}
+POLYGON ((274.6966 -59.03607, 274.8997 -59.00577, 274.9453 -58.88916, 274.7924 -58.79595, 274.5942 -58.8158, 274.5485 -58.93235, 274.5485 -58.93235, 274.5485 -58.93235, 274.5485 -58.93235, 274.5485 -58.93235, 274.6966 -59.03607))
+
+```
+
+Corner Coordinates:
+
+```{r, eval=F}
+nc <- nc_open("/glade/p/cgd/amp/patc/GRID_REPO/ne0np4.SAMwrf01.ne30x2/grids/SAMwrf01_ne30x2_np4_SCRIP.nc")
+lat <- ncdf4::ncvar_get(nc, "grid_corner_lat")
+lat <- rbind(lat, lat[1, i])
+
+lon <- ncdf4::ncvar_get(nc, "grid_corner_lon")
+lon <- rbind(lon, lon[1, i])
+geo <- sf::st_polygon(list(cbind(lon, lat)))
+
+```
+
+---
+
+## Time series
+
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("musser.png")
+```
+
+---
+## 2014-08-18
+
+.pull-left[
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("sao3.png")
+```
+
+]
+
+.pull-right[
+
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("sapm.png")
+```
+
+]
+
+---
+## VEIN Emissions
+
+.pull-left[
+
+<img src="veinco.png" alt="drawing" height="550"/>
+
+]
+
+.pull-right[
+
+<img src="veinno.png" alt="drawing" height="550"/>
+
+]
+
+
+---
+## Speciation
+
+.pull-left[
+
+<img src="veinhc.png" alt="drawing" height="550"/>
+
+]
+
+.pull-right[
+```{r, eval = F, fig.align='center',  out.height='83%'}
+dx <- speciate(x = x, spec = "nmhc",
+               fuel = "G", veh = "LDV", eu = "II")
+unique(dx$pol) # g/km2
+# ethane propane butane isobutane... 
+```
+
+mech options: "CB4", "CB05", "S99", "S7","CS7", "S7T", "S11", "S11D","S16C","S18B","RADM2", "RACM2","MOZT1", "CBMZ", "CB05opt2"
+
+```{r, eval = F, fig.align='center',  out.width='93%'}
+vocE25EX <- emis_chem2(df = dx, mech = "MOZT1")
+unique(dx$group) # mol/km2
+# BENZENE BIGALK BIGENE BZALD C2H2 C2H4
+# C2H6  C3H6 C3H8 CH2O CH3CHO CH3COCH3
+# MACR MEK TOLUENE XYLENES 
+```
+
+]
+
+---
+class invser center middle
+# Gracias!
+
+- https://ibarraespinosa.github.io/2022NCARv2s
+- https://ibarraespinosa.github.io/
+- sergio.ibarra-espinosa@noaa.gov
+- https://scholar.google.com.br/citations?user=8ohZGHEAAAAJ
+- https://github.com/ibarraespinosa
+- https://www.researchgate.net/profile/Sergio_Ibarra-Espinosa
+- https://orcid.org/0000-0002-3162-1905
+
+
