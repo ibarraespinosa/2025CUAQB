@@ -516,12 +516,12 @@ class: center middle
 <img src="figuras/no_2019_month.png" alt="drawing" height="500"/>
 
 
-
 ---
-class: center middle
-## Monthly mean bottom level $NO_2$ bottom 2019ppb
+## Monthly mean bottom level $NO$ bottom 2019ppb
 
-<img src="figuras/no2_2019_month.png" alt="drawing" height="500"/>
+```{r, echo = F, fig.align='center',  out.width='93%'}
+knitr::include_graphics("figuras/no2_2019.png")
+```
 
 
 ---
