@@ -168,6 +168,10 @@ Pulles, Tim, and Dick Heslinga. "The art of emission inventorying." TNO, Utrech
 
 ---
 class: inverse center middle
+<iframe width="560" height="315" src="https://youtu.be/7qbskoXxDd0?si=Yp9vO6OVE5FUE8XB" frameborder="0" allowfullscreen></iframe>
+
+---
+class: inverse center middle
 # Data and methods
 
 ---
@@ -540,7 +544,7 @@ class: center middle
 
 ---
 class: center middle
-<img src="figuras/MUSICA_CO_HOUR_MONTH.png" alt="drawing" height="700"/>
+<img src="figuras/MUSICA_CO_HOUR_MONTH.png" alt="drawing" height="650"/>
 
 
 
@@ -553,7 +557,7 @@ class: center middle
 
 ---
 class: center middle
-<img src="figuras/MUSICA_PM25_HOUR_MONTH.png" alt="drawing" height="65  0"/>
+<img src="figuras/MUSICA_PM25_HOUR_MONTH.png" alt="drawing" height="650"/>
 
 
 
