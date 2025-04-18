@@ -553,7 +553,7 @@ class: center middle
 
 ---
 class: center middle
-<img src="figuras/MUSICA_PM25_HOUR_MONTH.png" alt="drawing" height="700"/>
+<img src="figuras/MUSICA_PM25_HOUR_MONTH.png" alt="drawing" height="65  0"/>
 
 
 
