@@ -159,19 +159,16 @@ Pulles, Tim, and Dick Heslinga. "The art of emission inventorying." TNO, Utrech
 
 
 ---
+class: center
 # Objectives
 
-.pull-left[
 - Estimate vehicular emission in Brazil, 1960-2100
 - Evaluate impact of Shared Socioeconomic Pathways on evaporative emissions
 - Evaluate impacts on air quality during 2019
 - Compare with [Lichtig et al. (2024)](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2023JD040434)
-]
 
-.pull-right[
-<img src="figuras/pablo.jpg" alt="fuel" height="500"/>
+<img src="figuras/pablo.jpg" alt="fuel"/>
 
-]
 
 ---
 class: inverse center middle
